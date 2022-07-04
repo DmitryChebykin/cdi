@@ -1,6 +1,7 @@
 package org.demo.cdi;
 
 import lombok.extern.slf4j.Slf4j;
+import org.demo.cdi.startpoint.InjectionPoint;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 
