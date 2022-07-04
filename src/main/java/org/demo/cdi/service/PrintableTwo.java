@@ -2,10 +2,10 @@ package org.demo.cdi.service;
 
 import org.demo.cdi.printer.Validator;
 
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 
 @Validator
- @Singleton
+@ApplicationScoped
 public class PrintableTwo implements Printable {
 
     @Override

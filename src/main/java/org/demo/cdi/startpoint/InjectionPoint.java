@@ -11,7 +11,7 @@ public class InjectionPoint {
 
     @Inject
     @DefaultPrinter
-    Printable printable;
+    private Printable printable;
 
     public void letsNotCallItPrintButItPrints() {
         printable.print();

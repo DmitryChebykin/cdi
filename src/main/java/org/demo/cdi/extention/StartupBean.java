@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-@Startup
+@StartupWeld
 @Slf4j
 public class StartupBean {
     @PostConstruct

@@ -9,5 +9,5 @@ import static java.lang.annotation.ElementType.TYPE;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({FIELD, TYPE})
-public @interface Startup {
+public @interface StartupWeld {
 }

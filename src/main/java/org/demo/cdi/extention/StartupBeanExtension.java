@@ -10,9 +10,9 @@ public class StartupBeanExtension implements Extension {
     private final Set<Bean<?>> startupBeans = new LinkedHashSet<>();
 
     <X> void processBean(@Observes ProcessBean<X> event) {
-       Bean<X> bean = event.getBean();
-       Annotated annotated = event.getAnnotated();
-       if (annotated.isAnnotationPresent(Startup.class) &&
+        Bean<X> bean = event.getBean();
+        Annotated annotated = event.getAnnotated();
+        if (annotated.isAnnotationPresent(StartupWeld.class) &&
                 annotated.isAnnotationPresent(ApplicationScoped.class)) {
             startupBeans.add(bean);
         }

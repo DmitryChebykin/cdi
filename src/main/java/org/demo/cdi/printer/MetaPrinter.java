@@ -1,24 +1,20 @@
 package org.demo.cdi.printer;
 
-import org.demo.cdi.extention.Startup;
 import org.demo.cdi.service.Printable;
 
-import javax.enterprise.context.Dependent;
-import javax.enterprise.inject.Instance;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @DefaultPrinter
-@Dependent
+@ApplicationScoped
 public class MetaPrinter implements Printable {
 
     private final List<Printable> cachedPrintables = new CopyOnWriteArrayList<>();
 
     @Inject
-    @Validator
-    @Startup
-    private Instance<Printable> allPrintables;
+    private List<Printable> allPrintables;
 
     @Override
     public void print() {
