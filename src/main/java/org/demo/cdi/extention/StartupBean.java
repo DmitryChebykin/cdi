@@ -12,6 +12,6 @@ public class StartupBean {
     @PostConstruct
     public void onStartup()//  @Startup or  @Observes final ContainerInitialized event as args
     {
-        log.info("Application starting up. PostConstruct for ContainerInitialized");
+        log.info("Application starting up. PostConstruct for Extension");
     }
 }
