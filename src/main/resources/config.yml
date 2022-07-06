@@ -1,0 +1,3 @@
+database:
+    type: postgresql
+    version: 9.6.24
