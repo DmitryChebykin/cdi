@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @ApplicationScoped
-public class ConfigBean {
+public class PrintableBeanProducer {
 
     @Inject
     @Validator
@@ -24,7 +24,7 @@ public class ConfigBean {
 
     @Produces
     public List<Printable> producePrintable() {
-        List<Printable> printableList = new CopyOnWriteArrayList();
+        List<Printable> printableList = new CopyOnWriteArrayList<>();
         printableList.add(printableOne);
         printableList.add(printableTwo);
         return printableList;

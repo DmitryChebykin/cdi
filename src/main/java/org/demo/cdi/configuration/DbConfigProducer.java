@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import org.demo.cdi.extention.StartupWeld;
+import org.demo.cdi.startupbean.StartupWeld;
 import org.yaml.snakeyaml.Yaml;
 
 import javax.annotation.PostConstruct;
@@ -20,7 +20,7 @@ import java.util.Map;
 @NoArgsConstructor
 @Slf4j
 @ToString
-public class DbConfig {
+public class DbConfigProducer {
     private String type;
 
     private String version;

@@ -1,4 +1,4 @@
-package org.demo.cdi.extention;
+package org.demo.cdi.startupbean;
 
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.weld.environment.se.events.ContainerInitialized;

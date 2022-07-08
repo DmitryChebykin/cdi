@@ -1,4 +1,4 @@
-package org.demo.cdi.extention;
+package org.demo.cdi.startupbean;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
