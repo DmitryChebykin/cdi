@@ -1,4 +1,6 @@
-package org.demo.cdi.startupbean;
+package org.demo.cdi.extension;
+
+import org.demo.cdi.startupbean.StartupWeld;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
