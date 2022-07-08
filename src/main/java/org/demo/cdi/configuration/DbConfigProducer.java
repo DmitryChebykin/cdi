@@ -15,9 +15,6 @@ import java.util.Map;
 
 @StartupWeld
 @ApplicationScoped
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
 @Slf4j
 @ToString
 public class DbConfigProducer {
