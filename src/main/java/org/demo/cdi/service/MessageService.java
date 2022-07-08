@@ -14,5 +14,7 @@ public class MessageService {
     public void changeMessage() {
 
         Platform.runLater(() -> appController.setWelcomeText("Еще раз привет привет мамкиным программистам. Можно закрывать прогу."));
+
+
     }
 }

@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 @StartupWeld
 @Slf4j
 public class StartupBean {
-    ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
+    private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
     @Inject
     private MessageService messageService;
@@ -30,6 +30,8 @@ public class StartupBean {
 
         Runnable task = this::changeMessage;
 
-        ses.schedule(task, 10, TimeUnit.SECONDS);
+        scheduledExecutorService.schedule(task, 10, TimeUnit.SECONDS);
+
+        scheduledExecutorService.shutdown();
     }
 }
