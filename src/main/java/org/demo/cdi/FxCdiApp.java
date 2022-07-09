@@ -17,7 +17,7 @@ import javax.enterprise.inject.spi.CDI;
  */
 @Slf4j
 public class FxCdiApp extends Application {
-    private ContextControl contextControl;
+    private CdiContainer cdiContainer;
 
     public static void main(String[] args) {
         log.info("Hello from main of {} !", FxCdiApp.class.getCanonicalName());
@@ -26,16 +26,16 @@ public class FxCdiApp extends Application {
 
     @Override
     public void stop() throws Exception {
-        contextControl.stopContexts();
+        cdiContainer.shutdown();
         super.stop();
     }
 
     @Override
     public void start(Stage primaryStage) {
-        CdiContainer cdiContainer = CdiContainerLoader.getCdiContainer();
+        cdiContainer = CdiContainerLoader.getCdiContainer();
         cdiContainer.boot();
 
-        contextControl = cdiContainer.getContextControl();
+        ContextControl contextControl = cdiContainer.getContextControl();
         contextControl.startContext(ApplicationScoped.class);
 
         CDI.current().select(InjectionPoint.class).get().autoStartAction();
