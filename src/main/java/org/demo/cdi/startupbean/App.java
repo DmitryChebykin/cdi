@@ -4,7 +4,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.demo.cdi.event.ApplicationStartupEvent;
 import org.demo.cdi.event.MyEvent;
-import org.demo.cdi.view.AppController;
+import org.demo.cdi.view.AppFXMLController;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
@@ -15,29 +15,29 @@ import javax.inject.Inject;
 public class App {
 
     @Inject
-    AppController appController;
+    AppFXMLController appFXMLController;
 
     @Inject
     private Event<MyEvent> event;
 
-    public void start(@Observes @StartupScene Stage stage) {
-        Scene scene = appController.getScene();
-        stage.setScene(scene);
-        appController.setStage(stage);
-        stage.show();
-        System.out.println("stage = " + stage);
-        System.out.println("appController = " + appController.toString());
-        event.fire(new MyEvent());
-    }
+//    public void start(@Observes @StartupScene Stage stage) {
+//        Scene scene = appFXMLController.getScene();
+//        stage.setScene(scene);
+//        appFXMLController.setStage(stage);
+//        stage.show();
+//        System.out.println("stage = " + stage);
+//        System.out.println("appController = " + appFXMLController.toString());
+//        event.fire(new MyEvent());
+//    }
 
     public void start(@Observes ApplicationStartupEvent event) {
         Stage stage = event.getPrimaryStage();
-        Scene scene = appController.getScene();
+        Scene scene = appFXMLController.getScene();
         stage.setScene(scene);
-        appController.setStage(stage);
+        appFXMLController.setStage(stage);
         stage.show();
         System.out.println("stage = " + stage);
-        System.out.println("appController = " + appController.toString());
+        System.out.println("appController = " + appFXMLController.toString());
         this.event.fire(new MyEvent());
     }
 }

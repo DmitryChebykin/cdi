@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
-import org.demo.cdi.view.AppController;
+import org.demo.cdi.view.AppFXMLController;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -23,7 +23,7 @@ public class FxControllerProducer {
 
     @Produces
     @Singleton
-    public AppController appController() {
+    public AppFXMLController appController() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
 
@@ -32,7 +32,7 @@ public class FxControllerProducer {
             Stage stage = new Stage();
             Scene scene = new Scene(fxmlParent);
             stage.setScene(scene);
-            AppController controller = fxmlLoader.getController();
+            AppFXMLController controller = fxmlLoader.getController();
             controller.setStage(stage);
             controller.setScene(scene);
             System.out.println("stage = " + stage.toString());

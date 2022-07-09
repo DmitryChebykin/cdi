@@ -13,7 +13,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AppController {
+public class AppFXMLController {
     private Scene scene;
 
     private Stage stage;

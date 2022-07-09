@@ -2,7 +2,7 @@ package org.demo.cdi.service.message;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import org.demo.cdi.view.AppController;
+import org.demo.cdi.view.AppFXMLController;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -15,6 +15,6 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public void changeMessage() {
 
-        Platform.runLater(() -> fxmlLoader.<AppController>getController().setText("Еще раз привет привет мамкиным программистам. Можно закрывать прогу."));
+        Platform.runLater(() -> fxmlLoader.<AppFXMLController>getController().setText("Еще раз привет привет мамкиным программистам. Можно закрывать прогу."));
     }
 }

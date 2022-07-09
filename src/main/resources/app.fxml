@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/11.0.14-internal" fx:controller="org.demo.cdi.view.AppController">
+            xmlns="http://javafx.com/javafx/11.0.14-internal" fx:controller="org.demo.cdi.view.AppFXMLController">
     <Text fx:id="text" layoutX="71.0" layoutY="176.0"
           text="Привет мамкиным программистам и архитекторам! Ждем 10 секунд!!!" wrappingWidth="342.056640625"/>
     <TextField fx:id="txtField" onAction="#onAction" layoutX="71.0" layoutY="255.0"/>
