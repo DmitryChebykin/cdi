@@ -18,6 +18,8 @@ public class AppFXMLController {
 
     private Stage stage;
 
+    private AppFXMLControllerService appFXMLControllerService;
+
     @FXML
     private Text text;
 
@@ -27,13 +29,12 @@ public class AppFXMLController {
     @FXML
     private TextField txtField;
 
-    public void setText(String text) {
+    public void changeText(String text) {
         this.text.setText(text);
         this.text.setFill(Paint.valueOf("red"));
     }
 
-    @FXML
     public void onAction(ActionEvent event) {
-
+        appFXMLControllerService.onMouseHoverEvent(txtField, "Тултип");
     }
 }

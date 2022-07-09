@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 @ApplicationScoped
 public class FxLoaderProducer {
@@ -13,6 +14,7 @@ public class FxLoaderProducer {
     Instance<Object> instance;
 
     @Produces
+    @Singleton
     public FXMLLoader fxmlLoader() {
         FXMLLoader loader = new FXMLLoader();
         loader.setControllerFactory(param -> instance.select(param).get());

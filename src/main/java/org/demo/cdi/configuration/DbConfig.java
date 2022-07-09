@@ -3,7 +3,6 @@ package org.demo.cdi.configuration;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.deltaspike.core.api.config.ConfigProperty;
-import org.demo.cdi.startupbean.StartupWeld;
 import org.yaml.snakeyaml.Yaml;
 
 import javax.annotation.PostConstruct;

@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.demo.cdi.view.AppFXMLController;
+import org.demo.cdi.view.AppFXMLControllerService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -17,9 +18,8 @@ import java.io.InputStream;
 @ApplicationScoped
 @Slf4j
 public class FxControllerProducer {
-
     @Inject
-    FXMLLoader fxmlLoader;
+    AppFXMLControllerService service;
 
     @Produces
     @Singleton
@@ -35,6 +35,7 @@ public class FxControllerProducer {
             AppFXMLController controller = fxmlLoader.getController();
             controller.setStage(stage);
             controller.setScene(scene);
+            controller.setAppFXMLControllerService(service);
             System.out.println("stage = " + stage.toString());
             System.out.println("appController = " + controller.toString());
             return controller;
