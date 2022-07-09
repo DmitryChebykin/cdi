@@ -1,4 +1,4 @@
-package org.demo.cdi.printer;
+package org.demo.cdi.service.device;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;
@@ -11,5 +11,5 @@ import static java.lang.annotation.ElementType.TYPE;
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 @Target({FIELD, TYPE})
-public @interface Validator {
+public @interface PrintIdentity {
 }

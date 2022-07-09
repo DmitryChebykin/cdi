@@ -1,7 +1,7 @@
 package org.demo.cdi.extension;
 
-import org.demo.cdi.service.MessageServiceImpl;
-import org.demo.cdi.service.MockedMessageServiceImpl;
+import org.demo.cdi.service.message.MessageServiceImpl;
+import org.demo.cdi.service.message.MockedMessageServiceImpl;
 
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.spi.Extension;

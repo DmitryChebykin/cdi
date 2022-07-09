@@ -1,6 +1,6 @@
 package org.demo.cdi.printer;
 
-import org.demo.cdi.service.Printable;
+import org.demo.cdi.service.device.Printable;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

@@ -1,10 +1,11 @@
 package org.demo.cdi.startupbean;
 
 import lombok.extern.slf4j.Slf4j;
-import org.demo.cdi.service.MessageService;
+import org.demo.cdi.event.MyEvent;
+import org.demo.cdi.service.message.MessageService;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -23,8 +24,7 @@ public class StartupBean {
         messageService.changeMessage();
     }
 
-    @PostConstruct
-    public void onStartup()//  @Startup or  @Observes final ContainerInitialized event as args
+    public void onStartup(@Observes MyEvent myEvent)//  @Startup or  @Observes final ContainerInitialized event as args
     {
         log.info("Application starting up. PostConstruct for Extension");
 

@@ -1,8 +1,5 @@
 package org.demo.cdi.configuration;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.demo.cdi.startupbean.StartupWeld;

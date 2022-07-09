@@ -1,9 +1,9 @@
 package org.demo.cdi.configuration;
 
-import org.demo.cdi.printer.Validator;
-import org.demo.cdi.service.Printable;
-import org.demo.cdi.service.PrintableOne;
-import org.demo.cdi.service.PrintableTwo;
+import org.demo.cdi.service.device.PrintIdentity;
+import org.demo.cdi.service.device.Printable;
+import org.demo.cdi.service.device.PrintableOne;
+import org.demo.cdi.service.device.PrintableTwo;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -15,11 +15,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class PrintableBeanProducer {
 
     @Inject
-    @Validator
+    @PrintIdentity
     private PrintableOne printableOne;
 
     @Inject
-    @Validator
+    @PrintIdentity
     private PrintableTwo printableTwo;
 
     @Produces

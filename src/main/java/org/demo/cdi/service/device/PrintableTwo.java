@@ -1,10 +1,8 @@
-package org.demo.cdi.service;
-
-import org.demo.cdi.printer.Validator;
+package org.demo.cdi.service.device;
 
 import javax.enterprise.context.ApplicationScoped;
 
-@Validator
+@PrintIdentity
 @ApplicationScoped
 public class PrintableTwo implements Printable {
 
