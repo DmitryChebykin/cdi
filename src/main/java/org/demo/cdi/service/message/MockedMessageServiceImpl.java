@@ -20,6 +20,7 @@ public class MockedMessageServiceImpl implements MessageService {
         Platform.runLater(() -> {
             Stage stage = appController.getStage();
             System.out.println("stage = " + stage.toString());
+            System.out.println("appController = " + appController.toString());
 
             Text text = appController.getText();
             text.setText("Это тест MockedMessageServiceImpl. Можно закрывать прогу.");

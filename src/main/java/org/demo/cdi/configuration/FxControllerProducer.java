@@ -35,6 +35,8 @@ public class FxControllerProducer {
             AppController controller = fxmlLoader.getController();
             controller.setStage(stage);
             controller.setScene(scene);
+            System.out.println("stage = " + stage.toString());
+            System.out.println("appController = " + controller.toString());
             return controller;
         } catch (IOException e) {
             log.error("Ошибка чтения fxml {}", e.getMessage());

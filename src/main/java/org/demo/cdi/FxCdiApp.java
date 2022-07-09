@@ -3,12 +3,15 @@ package org.demo.cdi;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.deltaspike.cdise.api.CdiContainer;
+import org.apache.deltaspike.cdise.api.CdiContainerLoader;
+import org.apache.deltaspike.cdise.api.ContextControl;
+import org.demo.cdi.event.ApplicationStartupEvent;
 import org.demo.cdi.injectionpoint.InjectionPoint;
-import org.demo.cdi.startupbean.StartupScene;
 import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 
-import javax.enterprise.util.AnnotationLiteral;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.spi.CDI;
 
 /**
  * Hello world!
@@ -17,6 +20,8 @@ import javax.enterprise.util.AnnotationLiteral;
 public class FxCdiApp extends Application {
     private Weld weld;
 
+    private ContextControl contextControl;
+
     public static void main(String[] args) {
         log.info("Hello from main of {} !", FxCdiApp.class.getCanonicalName());
         Application.launch(args);
@@ -24,24 +29,20 @@ public class FxCdiApp extends Application {
 
     @Override
     public void stop() throws Exception {
-        weld.shutdown();
+        contextControl.stopContexts();
         super.stop();
     }
 
     @Override
     public void start(Stage primaryStage) {
-        weld = new Weld();
 
-        try {
-            WeldContainer weldContainer = weld.initialize();
+        CdiContainer cdiContainer = CdiContainerLoader.getCdiContainer();
+        cdiContainer.boot();
 
-            weldContainer.select(InjectionPoint.class).get().autoStartAction();
-            weldContainer.getBeanManager().fireEvent(primaryStage, new AnnotationLiteral<StartupScene>() {
-            });
-        } catch (Exception e) {
-            log.info(e.getMessage());
-            weld.shutdown();
-        }
+        contextControl = cdiContainer.getContextControl();
+        contextControl.startContext(ApplicationScoped.class);
+        CDI.current().select(InjectionPoint.class).get().autoStartAction();
+        CDI.current().getBeanManager().fireEvent(new ApplicationStartupEvent(primaryStage));
     }
 }
 
