@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 @ApplicationScoped
 @StartupWeld
 @Slf4j
-public class StartupBean {
+public class CdiExtentionStarter {
     private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
     @Inject

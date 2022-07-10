@@ -9,7 +9,7 @@ import javax.enterprise.event.Observes;
 
 @ApplicationScoped
 @Slf4j
-public class StartUpByEvent {
+public class ContainerInitializedEventStarter {
 
     @PostConstruct
     public void onStartup(@Observes final ContainerInitialized event) {

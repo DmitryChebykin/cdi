@@ -6,7 +6,7 @@ import javax.enterprise.event.Observes;
 import java.util.stream.IntStream;
 
 @ApplicationScoped
-public class ConsolePrinter {
+public class ConsolePrinterStarter {
 
     public void init(@Observes @Initialized(ApplicationScoped.class) Object init) {
         IntStream.range(1, 101).forEach(e -> System.out.println("Программист A. не читатель, он писатель"));

@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.deltaspike.cdise.api.CdiContainer;
@@ -55,7 +56,9 @@ public class FxCdiApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         CDI.current().select(AppFXMLController.class).get().setStage(primaryStage);
-        primaryStage.setScene(new Scene(rootNode));
+        Scene scene = new Scene(rootNode);
+        scene.setFill(Color.WHITE);
+        primaryStage.setScene(scene);
         primaryStage.show();
         CDI.current().select(InjectionPoint.class).get().autoStartAction();
         CDI.current().getBeanManager().fireEvent(new ApplicationStartupEvent(primaryStage));

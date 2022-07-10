@@ -12,7 +12,7 @@ import java.util.Properties;
 
 public class ConditionalBeanExtension implements Extension {
 
-    public void observePAT1(@Observes ProcessAnnotatedType<MessageServiceImpl> pat) throws IOException {
+    public void loadProductionProfile(@Observes ProcessAnnotatedType<MessageServiceImpl> pat) throws IOException {
         // resolve your configuration option, you can alternatively place this login into no-args constructor and re-use
         String vmArgumentType = loadVmArg();
         // if the arg does not equal this impl, we do not want it
@@ -28,7 +28,7 @@ public class ConditionalBeanExtension implements Extension {
         return prop.getProperty("test");
     }
 
-    public void observePAT2(@Observes ProcessAnnotatedType<MockedMessageServiceImpl> pat) throws IOException {
+    public void loadDevelopmentProfile(@Observes ProcessAnnotatedType<MockedMessageServiceImpl> pat) throws IOException {
         // resolve your configuration option, you can alternatively place this login into no-args constructor and re-use
         String vmArgumentType = loadVmArg();
         // if the arg does not equal this impl, we do not want it

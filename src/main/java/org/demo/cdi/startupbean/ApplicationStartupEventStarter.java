@@ -10,7 +10,7 @@ import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
 @ApplicationScoped
-public class App {
+public class ApplicationStartupEventStarter {
 
     @Inject
     AppFXMLController appFXMLController;
