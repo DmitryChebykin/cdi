@@ -15,6 +15,6 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public void changeMessage() {
 
-        Platform.runLater(() -> fxmlLoader.<AppFXMLController>getController().changeText("Еще раз привет привет мамкиным программистам. Можно закрывать прогу."));
+        Platform.runLater(() -> fxmlLoader.<AppFXMLController>getController().changeText("Еще раз привет привет мамкиным программистам. Можно закрывать прогу. Или нажмите кнопку или повводите email"));
     }
 }

@@ -2,10 +2,12 @@ package org.demo.cdi.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 import org.demo.cdi.configuration.SingletonBean;
@@ -16,6 +18,9 @@ import javax.inject.Inject;
 @Setter
 @SingletonBean
 public class AppFXMLController {
+    private Stage stage;
+
+    @Inject
     private AppFXMLControllerService appFXMLControllerService;
 
     @FXML
@@ -27,6 +32,9 @@ public class AppFXMLController {
     @FXML
     private TextField txtField;
 
+    @FXML
+    private Button button;
+
     @Inject
     public AppFXMLController(AppFXMLControllerService appFXMLControllerService) {
         this.appFXMLControllerService = appFXMLControllerService;
@@ -37,8 +45,11 @@ public class AppFXMLController {
         this.text.setFill(Paint.valueOf("red"));
     }
 
-    @FXML
-    private void showTooltip(ActionEvent event) {
+    public void showTooltip(ActionEvent event) {
         appFXMLControllerService.onMouseHoverEvent(txtField, "Тултип");
+    }
+
+    public void switchController(ActionEvent actionEvent) {
+        appFXMLControllerService.activateSlaveView(actionEvent);
     }
 }

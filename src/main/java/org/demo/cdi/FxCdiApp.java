@@ -11,10 +11,10 @@ import org.apache.deltaspike.cdise.api.CdiContainerLoader;
 import org.apache.deltaspike.cdise.api.ContextControl;
 import org.demo.cdi.event.ApplicationStartupEvent;
 import org.demo.cdi.injectionpoint.InjectionPoint;
+import org.demo.cdi.view.AppFXMLController;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.spi.CDI;
-import java.io.InputStream;
 import java.net.URL;
 
 /**
@@ -42,6 +42,7 @@ public class FxCdiApp extends Application {
         URL fxmlLocation = getClass().getResource("/app.fxml");
 
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
+
         fxmlLoader.setControllerFactory(param -> CDI.current().select(param).get());
         rootNode = fxmlLoader.load();
     }
@@ -53,6 +54,7 @@ public class FxCdiApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        CDI.current().select(AppFXMLController.class).get().setStage(primaryStage);
         primaryStage.setScene(new Scene(rootNode));
         primaryStage.show();
         CDI.current().select(InjectionPoint.class).get().autoStartAction();
