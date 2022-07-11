@@ -9,14 +9,13 @@ import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.deltaspike.cdise.api.CdiContainer;
 import org.apache.deltaspike.cdise.api.CdiContainerLoader;
-import org.apache.deltaspike.cdise.api.ContextControl;
 import org.demo.cdi.event.ApplicationStartupEvent;
 import org.demo.cdi.injectionpoint.InjectionPoint;
 import org.demo.cdi.view.AppFXMLController;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.spi.CDI;
-import java.net.URL;
+import java.io.IOException;
 
 /**
  * Hello world!
@@ -34,18 +33,7 @@ public class FxCdiApp extends Application {
 
     @Override
     public void init() throws Exception {
-        cdiContainer = CdiContainerLoader.getCdiContainer();
-        cdiContainer.boot();
-
-        ContextControl contextControl = cdiContainer.getContextControl();
-        contextControl.startContext(ApplicationScoped.class);
-
-        URL fxmlLocation = getClass().getResource("/app.fxml");
-
-        FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
-
-        fxmlLoader.setControllerFactory(param -> CDI.current().select(param).get());
-        rootNode = fxmlLoader.load();
+        startContainer();
     }
 
     @Override
@@ -58,10 +46,23 @@ public class FxCdiApp extends Application {
         CDI.current().select(AppFXMLController.class).get().setStage(primaryStage);
         Scene scene = new Scene(rootNode);
         scene.setFill(Color.WHITE);
+
         primaryStage.setScene(scene);
         primaryStage.show();
+
         CDI.current().select(InjectionPoint.class).get().autoStartAction();
         CDI.current().getBeanManager().fireEvent(new ApplicationStartupEvent(primaryStage));
+    }
+
+    private void startContainer() throws IOException {
+        cdiContainer = CdiContainerLoader.getCdiContainer();
+        cdiContainer.boot();
+        cdiContainer.getContextControl().startContext(ApplicationScoped.class);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/app.fxml"));
+
+        fxmlLoader.setControllerFactory(param -> CDI.current().select(param).get());
+        rootNode = fxmlLoader.load();
     }
 }
 
