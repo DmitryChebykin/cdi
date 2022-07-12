@@ -1,9 +1,6 @@
 package org.demo.cdi.configuration;
 
-import org.demo.cdi.service.device.PrintIdentity;
-import org.demo.cdi.service.device.Printable;
-import org.demo.cdi.service.device.PrintableOne;
-import org.demo.cdi.service.device.PrintableTwo;
+import org.demo.cdi.service.device.*;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -22,11 +19,16 @@ public class PrintableBeanProducer {
     @PrintIdentity
     private PrintableTwo printableTwo;
 
+    @Inject
+    @PrintIdentity
+    private PrintableThree printableThree;
+
     @Produces
     public List<Printable> producePrintable() {
         List<Printable> printableList = new CopyOnWriteArrayList<>();
         printableList.add(printableOne);
         printableList.add(printableTwo);
+        printableList.add(printableThree);
         return printableList;
     }
 }
