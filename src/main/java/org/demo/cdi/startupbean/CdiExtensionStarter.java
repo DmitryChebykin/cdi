@@ -24,7 +24,7 @@ public class CdiExtensionStarter {
         messageService.changeMessage();
     }
 
-    public void onStartup(@Observes MyEvent myEvent)//  @Startup or  @Observes final ContainerInitialized event as args
+    public void onStartup(@Observes MyEvent myEvent)
     {
         log.info("Application starting up. PostConstruct for Extension");
 
