@@ -10,9 +10,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Initialized;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
@@ -21,7 +19,7 @@ import java.util.Map;
 @ToString
 public class DbConfig {
     @Inject
-    @ConfigProperty(name="dataId")
+    @ConfigProperty(name = "dataId")
     private String dataId;
 
     private String type;
@@ -29,7 +27,7 @@ public class DbConfig {
     private String version;
 
     public void init(@Observes @Initialized(ApplicationScoped.class) Object init) {
-    log.info("Я стартовал, {}", this.getClass().getSimpleName());
+        log.info("Я стартовал, {}", this.getClass().getSimpleName());
     }
 
     @PostConstruct

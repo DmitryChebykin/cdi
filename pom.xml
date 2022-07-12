@@ -97,7 +97,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>org.apache.deltaspike.cdictrl</groupId>
             <artifactId>deltaspike-cdictrl-api</artifactId>
@@ -110,8 +109,6 @@
             <artifactId>deltaspike-core-impl</artifactId>
             <version>1.9.6</version>
         </dependency>
-
-
 
 
     </dependencies>

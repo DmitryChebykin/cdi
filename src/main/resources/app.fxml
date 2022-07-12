@@ -8,10 +8,12 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml" prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx" fx:controller="org.demo.cdi.view.AppFXMLController">
     <Text fx:id="text" layoutX="71.0" layoutY="176.0"
-          text="Посвящается мамкиным программистам и архитекторам! Ждем 10 секунд!!! Не нажимайте кнопку! Вводите email" wrappingWidth="342.056640625"/>
+          text="Посвящается мамкиным программистам и архитекторам! Ждем 10 секунд!!! Не нажимайте кнопку! Вводите email"
+          wrappingWidth="342.056640625"/>
     <TextField fx:id="txtField" layoutX="71.0" layoutY="255.0" onAction="#showTooltip"/>
     <Label fx:id="label" layoutX="71.0" layoutY="223.0" prefHeight="17.0" prefWidth="105.0" text="Введите email"/>
-    <Button fx:id="button" onAction="#switchController" layoutX="71.0" layoutY="309.0" mnemonicParsing="false" text="Button"/>
+    <Button fx:id="button" onAction="#switchController" layoutX="71.0" layoutY="309.0" mnemonicParsing="false"
+            text="Button"/>
 
 
 </AnchorPane>

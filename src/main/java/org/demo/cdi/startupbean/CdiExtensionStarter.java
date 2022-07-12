@@ -24,8 +24,7 @@ public class CdiExtensionStarter {
         messageService.changeMessage();
     }
 
-    public void onStartup(@Observes MyEvent myEvent)
-    {
+    public void onStartup(@Observes MyEvent myEvent) {
         log.info("Application starting up. PostConstruct for Extension");
 
         Runnable task = this::changeMessage;
