@@ -9,9 +9,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import java.io.IOException;
 
-@ApplicationScoped
 @Slf4j
-public class FxControllerProducer {
+@ApplicationScoped
+public class FXMLControllerProducer {
 
     @Produces
     @SingletonBean

@@ -39,6 +39,7 @@ public class FxCdiApp extends Application {
     @Override
     public void stop() throws Exception {
         cdiContainer.shutdown();
+        super.stop();
     }
 
     @Override

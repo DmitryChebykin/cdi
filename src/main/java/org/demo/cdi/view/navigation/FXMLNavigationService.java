@@ -14,7 +14,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 @SingletonBean
-public class NavigationService {
+public class FXMLNavigationService {
     @Inject
     private AppFXMLController appFXMLController;
 
