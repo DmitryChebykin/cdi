@@ -1,6 +1,6 @@
 Weld SE CDI example use with JavaFX and eager bean init
 
-In Weld CDI for bean init during bootstrap you can use the following
+In Weld CDI for bean init during bootstrap you can use the following:
 
 - Extension
 
