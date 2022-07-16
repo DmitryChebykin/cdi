@@ -16,4 +16,4 @@ You can run different configuration of JavaFx application, and run one
 
 JavaFx app (for example "Admin user UI") from another JavaFx app ("Regular user UI")
 
-See Feature/ApacheDeltaSpike brunch.
+See Feature/ApacheDeltaSpike branch.
