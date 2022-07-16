@@ -6,6 +6,7 @@ import org.demo.cdi.injectionpoint.InjectionPoint;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.springframework.beans.factory.config.SingletonBeanRegistry;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.support.GenericApplicationContext;
 
