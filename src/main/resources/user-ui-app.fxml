@@ -15,7 +15,7 @@
     <TextField fx:id="txtField" layoutX="71.0" layoutY="255.0" onAction="#showTooltip"/>
     <Label fx:id="label" layoutX="71.0" layoutY="223.0" prefHeight="17.0" prefWidth="105.0" text="Введите email"/>
     <Button fx:id="button" layoutX="71.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchController"
-            text="Button"/>
+            text="Switch to Slave Controller"/>
     <Button fx:id="btnSwitchFxApp" layoutX="317.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchFx"
             text="Switch to AdminUiFxApp"/>
 </AnchorPane>
