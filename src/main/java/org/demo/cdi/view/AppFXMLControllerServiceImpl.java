@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Control;
 import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
-import org.demo.cdi.FxCdiAppTwo;
+import org.demo.cdi.AdminUiFxApp;
 import org.demo.cdi.event.ShutdownEvent;
 import org.demo.cdi.configuration.SingletonBean;
 import org.demo.cdi.event.NavigationEvent;
@@ -57,7 +57,7 @@ public class AppFXMLControllerServiceImpl implements AppFXMLControllerService {
 
         Application app2;
         try {
-            app2 = FxCdiAppTwo.class.newInstance();
+            app2 = AdminUiFxApp.class.newInstance();
             app2.init();
             app2.start(anotherStage);
         } catch (Exception e) {

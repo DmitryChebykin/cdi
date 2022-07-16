@@ -2,7 +2,7 @@ package org.demo.cdi.startupbean;
 
 import org.demo.cdi.event.ApplicationStartupEvent;
 import org.demo.cdi.event.MyEvent;
-import org.demo.cdi.view.AppFXMLController;
+import org.demo.cdi.view.UserUiFxmlStartController;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
@@ -13,13 +13,13 @@ import javax.inject.Inject;
 public class ApplicationStartupEventStarter {
 
     @Inject
-    AppFXMLController appFXMLController;
+    UserUiFxmlStartController userUiFxmlStartController;
 
     @Inject
     private Event<MyEvent> event;
 
     public void start(@Observes ApplicationStartupEvent event) {
-        System.out.println("appController = " + appFXMLController.toString());
+        System.out.println("appController = " + userUiFxmlStartController.toString());
         this.event.fire(new MyEvent());
     }
 }

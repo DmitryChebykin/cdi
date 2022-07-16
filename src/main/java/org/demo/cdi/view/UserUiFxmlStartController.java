@@ -17,7 +17,7 @@ import javax.inject.Inject;
 @Getter
 @Setter
 @SingletonBean
-public class AppFXMLController {
+public class UserUiFxmlStartController {
     private Stage stage;
 
     @Inject
@@ -39,7 +39,7 @@ public class AppFXMLController {
     private Button btnSwitchFxApp;
 
     @Inject
-    public AppFXMLController(AppFXMLControllerService appFXMLControllerService) {
+    public UserUiFxmlStartController(AppFXMLControllerService appFXMLControllerService) {
         this.appFXMLControllerService = appFXMLControllerService;
     }
 
@@ -59,7 +59,7 @@ public class AppFXMLController {
     }
 
     @FXML
-    public void switchFx(ActionEvent actionEvent) throws Exception {
+    public void switchFx(ActionEvent actionEvent) {
         appFXMLControllerService.switchFxApp(actionEvent);
     }
 }

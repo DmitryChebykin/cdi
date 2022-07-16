@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/11.0.14-internal" fx:controller="org.demo.cdi.view.AppFXMLController">
+            xmlns="http://javafx.com/javafx/11.0.14-internal"
+            fx:controller="org.demo.cdi.view.UserUiFxmlStartController">
     <Text fx:id="text" layoutX="71.0" layoutY="176.0"
-          text="Посвящается мамкиным программистам и архитекторам! Ждем 10 секунд!!! Не нажимайте кнопку! Вводите email"
+          text="Посвящается мамкиным программистам и архитекторам! Ждем 10 секунд!!! Не нажимайте кнопку! Повводите email + Enter.
+Это пользовательский интерфейс."
           wrappingWidth="342.056640625"/>
     <TextField fx:id="txtField" layoutX="71.0" layoutY="255.0" onAction="#showTooltip"/>
     <Label fx:id="label" layoutX="71.0" layoutY="223.0" prefHeight="17.0" prefWidth="105.0" text="Введите email"/>
     <Button fx:id="button" layoutX="71.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchController"
             text="Button"/>
-    <Button fx:id="btnSwitchFxApp" layoutX="313.0" layoutY="297.0" mnemonicParsing="false" onAction="#switchFx"
-            text="Switch FX"/>
-
-
+    <Button fx:id="btnSwitchFxApp" layoutX="317.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchFx"
+            text="Switch to AdminUiFxApp"/>
 </AnchorPane>

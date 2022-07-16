@@ -9,10 +9,9 @@ import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.deltaspike.cdise.api.CdiContainer;
 import org.apache.deltaspike.cdise.api.CdiContainerLoader;
-import org.demo.cdi.event.ApplicationStartupEvent;
 import org.demo.cdi.event.ShutdownEvent;
 import org.demo.cdi.injectionpoint.InjectionPoint;
-import org.demo.cdi.view.AppFXMLController;
+import org.demo.cdi.view.AdminUiFXMLStartController;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
@@ -24,13 +23,13 @@ import java.io.IOException;
  */
 @Slf4j
 @ApplicationScoped
-public class FxCdiApp extends Application {
+public class AdminUiFxApp extends Application {
     private CdiContainer cdiContainer;
 
     private Parent rootNode;
 
     public static void main(String[] args) {
-        log.info("Hello from main of {} !", FxCdiApp.class.getCanonicalName());
+        log.info("Hello from main of {} !", AdminUiFxApp.class.getCanonicalName());
         Application.launch(args);
     }
 
@@ -47,7 +46,7 @@ public class FxCdiApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        CDI.current().select(AppFXMLController.class).get().setStage(primaryStage);
+        CDI.current().select(AdminUiFXMLStartController.class).get().setStage(primaryStage);
         Scene scene = new Scene(rootNode);
         scene.setFill(Color.WHITE);
 
@@ -55,7 +54,7 @@ public class FxCdiApp extends Application {
         primaryStage.show();
 
         CDI.current().select(InjectionPoint.class).get().autoStartAction();
-        CDI.current().getBeanManager().fireEvent(new ApplicationStartupEvent(primaryStage));
+//        CDI.current().getBeanManager().fireEvent(new ApplicationStartupEvent(primaryStage));
     }
 
     private void startContainer() throws IOException {
@@ -63,13 +62,13 @@ public class FxCdiApp extends Application {
         cdiContainer.boot();
         cdiContainer.getContextControl().startContext(ApplicationScoped.class);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/app.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/admin-ui-app.fxml"));
 
         fxmlLoader.setControllerFactory(param -> CDI.current().select(param).get());
         rootNode = fxmlLoader.load();
     }
 
-    private void clearParent(@Observes final ShutdownEvent shutdownEvent){
+    private void clearParent(@Observes final ShutdownEvent shutdownEvent) {
         rootNode = null;
         log.info("set root to null");
     }
