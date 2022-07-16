@@ -35,6 +35,9 @@ public class AppFXMLController {
     @FXML
     private Button button;
 
+    @FXML
+    private Button btnSwitchFxApp;
+
     @Inject
     public AppFXMLController(AppFXMLControllerService appFXMLControllerService) {
         this.appFXMLControllerService = appFXMLControllerService;
@@ -45,11 +48,18 @@ public class AppFXMLController {
         this.text.setFill(Paint.valueOf("red"));
     }
 
+    @FXML
     public void showTooltip(ActionEvent event) {
         appFXMLControllerService.onMouseHoverEvent(txtField, "Тултип");
     }
 
+    @FXML
     public void switchController(ActionEvent actionEvent) {
         appFXMLControllerService.activateSlaveView(actionEvent);
+    }
+
+    @FXML
+    public void switchFx(ActionEvent actionEvent) throws Exception {
+        appFXMLControllerService.switchFxApp(actionEvent);
     }
 }

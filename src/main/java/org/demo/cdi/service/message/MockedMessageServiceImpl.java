@@ -20,8 +20,10 @@ public class MockedMessageServiceImpl implements MessageService {
             System.out.println("appController = " + appFXMLController.toString());
 
             Text text = appFXMLController.getText();
-            text.setText("Это тест MockedMessageServiceImpl. Можно закрывать прогу. Можно закрывать прогу. Или нажмите кнопку или повводите email");
-            text.setFill(Paint.valueOf("red"));
+            if (text != null) {
+                text.setText("Это тест MockedMessageServiceImpl. Можно закрывать прогу. Можно закрывать прогу. Или нажмите кнопку или повводите email");
+                text.setFill(Paint.valueOf("red"));
+            }
         });
     }
 }

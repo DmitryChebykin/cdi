@@ -7,4 +7,6 @@ public interface AppFXMLControllerService {
     void onMouseHoverEvent(Control control, String message);
 
     void activateSlaveView(ActionEvent actionEvent);
+
+    void switchFxApp(ActionEvent event);
 }
