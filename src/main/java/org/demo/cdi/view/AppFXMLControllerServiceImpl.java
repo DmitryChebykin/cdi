@@ -8,6 +8,7 @@ import javafx.scene.control.Control;
 import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
 import org.demo.cdi.FxCdiAppTwo;
+import org.demo.cdi.event.ShutdownEvent;
 import org.demo.cdi.configuration.SingletonBean;
 import org.demo.cdi.event.NavigationEvent;
 import org.jboss.weld.environment.se.WeldContainer;
@@ -20,10 +21,14 @@ import javax.inject.Inject;
 public class AppFXMLControllerServiceImpl implements AppFXMLControllerService {
     @Inject
     @Any
-    private Event<NavigationEvent> events;
+    private Event<NavigationEvent> navigationEvent;
 
     @Inject
-    private WeldContainer cdiContainer;
+    @Any
+    private Event<ShutdownEvent> shutdownEvent;
+
+    @Inject
+    private WeldContainer weldContainer;
 
     @Override
     public void onMouseHoverEvent(Control control, String message) {
@@ -37,14 +42,17 @@ public class AppFXMLControllerServiceImpl implements AppFXMLControllerService {
 
     @Override
     public void activateSlaveView(ActionEvent actionEvent) {
-        events.fire(new NavigationEvent());
+        navigationEvent.fire(new NavigationEvent());
     }
 
     @Override
     public void switchFxApp(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
-        cdiContainer.shutdown();
+
+        shutdownEvent.fire(new ShutdownEvent());
+
+        weldContainer.shutdown();
         Stage anotherStage = new Stage();
 
         Application app2;

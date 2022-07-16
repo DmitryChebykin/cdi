@@ -10,10 +10,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.deltaspike.cdise.api.CdiContainer;
 import org.apache.deltaspike.cdise.api.CdiContainerLoader;
 import org.demo.cdi.event.ApplicationStartupEvent;
+import org.demo.cdi.event.ShutdownEvent;
 import org.demo.cdi.injectionpoint.InjectionPoint;
 import org.demo.cdi.view.AppFXMLController;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
 import javax.enterprise.inject.spi.CDI;
 import java.io.IOException;
 
@@ -21,6 +23,7 @@ import java.io.IOException;
  * Hello world!
  */
 @Slf4j
+@ApplicationScoped
 public class FxCdiApp extends Application {
     private CdiContainer cdiContainer;
 
@@ -64,6 +67,11 @@ public class FxCdiApp extends Application {
 
         fxmlLoader.setControllerFactory(param -> CDI.current().select(param).get());
         rootNode = fxmlLoader.load();
+    }
+
+    private void clearParent(@Observes final ShutdownEvent shutdownEvent){
+        rootNode = null;
+        log.info("set root to null");
     }
 }
 
