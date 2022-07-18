@@ -11,8 +11,11 @@ Weld SE CDI example use with JavaFX and eager bean init
 In Weld SE CDI for bean eager init during bootstrap you can use the following:
 
 Extension
+
 WeldContainer events
+
 Injection point bean
+
 And however you can load application config beans from .properties and .yml files.
 
 With ApacheDeltaSpike you can inject fields in SpingApp style (@Value).
